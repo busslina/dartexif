@@ -17,7 +17,7 @@ void usage(int exitStatus) {
   exit(exitStatus);
 }
 
-Future main(List<String> arguments) async {
+void main(List<String> arguments) {
   exitCode = 0;
 
   bool detailed = true;
@@ -59,7 +59,7 @@ Future main(List<String> arguments) async {
 
     final fileBytes = File(filename).readAsBytesSync();
 
-    print(await printExifOfBytes(fileBytes,
+    print(printExifOfBytes(fileBytes,
         stopTag: stopTag, details: detailed, strict: strict, debug: debug));
   }
 }

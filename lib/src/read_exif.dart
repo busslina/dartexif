@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -18,12 +17,12 @@ int _incrementBase(List<int> data, int base) {
 /// Process an image file data.
 /// This is the function that has to deal with all the arbitrary nasty bits
 /// of the EXIF standard.
-Future<Map<String, IfdTag>> readExifFromBytes(List<int> bytes,
+Map<String, IfdTag> readExifFromBytes(List<int> bytes,
     {String? stopTag,
     bool details = true,
     bool strict = false,
     bool debug = false,
-    bool truncateTags = true}) async {
+    bool truncateTags = true}) {
   return readExifFromFileReader(FileReader.fromBytes(bytes),
           stopTag: stopTag,
           details: details,
@@ -34,14 +33,14 @@ Future<Map<String, IfdTag>> readExifFromBytes(List<int> bytes,
 }
 
 /// Streaming version of [readExifFromBytes].
-Future<Map<String, IfdTag>> readExifFromFile(File file,
+Map<String, IfdTag> readExifFromFile(File file,
     {String? stopTag,
     bool details = true,
     bool strict = false,
     bool debug = false,
-    bool truncateTags = true}) async {
+    bool truncateTags = true}) {
   final randomAccessFile = file.openSync();
-  final fileReader = await FileReader.fromFile(randomAccessFile);
+  final fileReader = FileReader.fromFile(randomAccessFile);
   final r = readExifFromFileReader(fileReader,
       stopTag: stopTag,
       details: details,

@@ -1,11 +1,11 @@
 import 'package:exif/src/file_interface.dart';
 import 'package:exif/src/read_exif.dart';
 
-Future<String> printExifOfBytes(List<int> bytes,
+String printExifOfBytes(List<int> bytes,
     {String? stopTag,
     bool details = true,
     bool strict = false,
-    bool debug = false}) async {
+    bool debug = false}) {
   final data =
       readExifFromFileReader(FileReader.fromBytes(bytes), stopTag: stopTag);
 

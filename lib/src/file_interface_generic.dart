@@ -1,8 +1,6 @@
-import 'dart:async';
-
 import 'package:exif/src/file_interface.dart';
 
-Future<FileReader> createFileReaderFromFile(dynamic file) async {
+FileReader createFileReaderFromFile(dynamic file) {
   if (file is List<int>) {
     return FileReader.fromBytes(file);
   }

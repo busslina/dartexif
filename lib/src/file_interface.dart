@@ -1,11 +1,9 @@
-import 'dart:async';
-
 import 'package:exif/src/file_interface_generic.dart'
     if (dart.library.html) "package:exif/src/file_interface_html.dart"
     if (dart.library.io) 'package:exif/src/file_interface_io.dart';
 
 abstract class FileReader {
-  static Future<FileReader> fromFile(dynamic file) async {
+  static FileReader fromFile(dynamic file) {
     return createFileReaderFromFile(file);
   }
 

@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:exif/exif.dart';
 
-Future main(List<String> arguments) async {
+void main(List<String> arguments) {
   for (final filename in arguments) {
     print("read $filename ..");
 
     final fileBytes = File(filename).readAsBytesSync();
-    final data = await readExifFromBytes(fileBytes);
+    final data = readExifFromBytes(fileBytes);
 
     if (data.isEmpty) {
       print("No EXIF information found");
