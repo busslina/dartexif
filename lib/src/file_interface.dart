@@ -1,6 +1,4 @@
-import 'package:exif/src/file_interface_generic.dart'
-    if (dart.library.html) "package:exif/src/file_interface_html.dart"
-    if (dart.library.io) 'package:exif/src/file_interface_io.dart';
+import 'package:exif/src/file_interface_generic.dart';
 
 abstract class FileReader {
   static FileReader fromFile(dynamic file) {
